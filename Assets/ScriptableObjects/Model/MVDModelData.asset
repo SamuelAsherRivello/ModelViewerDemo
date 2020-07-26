@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9c22dc3c288ad49a31b4fbced2fa70, type: 3}
+  m_Name: MVDModelData
+  m_EditorClassIdentifier: 
+  _characterViews:
+  - {fileID: 696879403, guid: 33f4e2fb3c90bc943a5ce5f577ed234a, type: 3}
+  _backgroundColors:
+  - {r: 0.96970505, g: 1, b: 0.56981134, a: 0}
+  - {r: 1, g: 0.86965525, b: 0.68301886, a: 0}
+  - {r: 1, g: 0.72075474, b: 0.72075474, a: 0}
+  - {r: 1, g: 0.71132076, b: 0.99961346, a: 0}
+  - {r: 0.7773585, g: 0.7956937, b: 1, a: 0}
+  _rotationSpeed: {x: 3, y: 1}
