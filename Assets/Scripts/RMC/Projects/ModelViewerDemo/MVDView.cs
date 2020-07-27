@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,8 +28,6 @@ namespace RMC.Projects.ModelViewerDemo
 
 		private CharacterView _characterView = null;
 		private List<Renderer> _backgroundRenderers = null;
-		private Vector3 _targetRotation = Vector3.zero;
-		private float _rotationDeltaSpeed = 0;
 
 		//  Initialization ---------------------------------------
 		private void Initialize()
@@ -61,16 +58,10 @@ namespace RMC.Projects.ModelViewerDemo
 
 		}
 
-
-
       //  Unity Methods ---------------------------------------
       protected void Awake()
 		{
 			Initialize();
-		}
-
-		protected void Update()
-		{
 		}
 
 		//  Methods ---------------------------------------------
@@ -87,8 +78,6 @@ namespace RMC.Projects.ModelViewerDemo
 			_characterView.transform.Rotate(_characterView.DefaultRotation);
 			_characterView.transform.localScale = _characterView.DefaultScale;
 			_characterView.transform.position = _characterView.DefaultPosition;
-
-			_targetRotation = _characterViewParent.rotation.eulerAngles;
 		}
 
 		public void SetCharacterColor(int index)

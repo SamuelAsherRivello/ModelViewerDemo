@@ -3,7 +3,9 @@ using UnityEngine;
 
 namespace RMC.Projects.ModelViewerDemo
 {
-	[CreateAssetMenu (fileName = "MVDModelData", menuName = "RMC/Projects/ModelViewerDemo/MVDModelData", order = 0)]
+	[CreateAssetMenu (fileName = "MVDModelData", 
+		menuName = "RMC/Projects/ModelViewerDemo/MVDModelData", 
+		order = 0)]
 	public class MVDModelData : ScriptableObject
 	{
 		//  Fields ----------------------------------------------

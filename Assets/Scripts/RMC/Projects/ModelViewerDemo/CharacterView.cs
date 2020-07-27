@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ namespace RMC.Projects.ModelViewerDemo
 
       //  Fields ----------------------------------------------
       [SerializeField]
-		private Animator _animator = null;
+		private SimpleAnimation _simpleAnimation = null;
 
 		[SerializeField]
 		private Vector3 _defaultRotation = new Vector3();
@@ -32,7 +31,6 @@ namespace RMC.Projects.ModelViewerDemo
 		[SerializeField]
 		private List<Color> _characterColors = null;
 
-		private AnimatorOverrideController _animatorOverrideController = null;
 		private List<Renderer> _renderers = null;
 
 		//  Initialization  -----------------------------------
@@ -40,11 +38,10 @@ namespace RMC.Projects.ModelViewerDemo
 		{
 			_renderers = GetComponentsInChildren<Renderer>().ToList<Renderer>();
 
-			//
-			_animatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
-			_animator.runtimeAnimatorController = _animatorOverrideController;
-			SetAnimation(0);
-
+			foreach (AnimationClip animationClip in _animationClips)
+         {
+				_simpleAnimation.AddClip(animationClip, animationClip.name);
+			}
 		}
 
 		//  Unity Methods ---------------------------------------
@@ -57,10 +54,10 @@ namespace RMC.Projects.ModelViewerDemo
 		public void SetAnimation(int index)
 		{
 			AnimationClip nextAnimationClip = _animationClips[index];
-			_animatorOverrideController [nextAnimationClip.name] = nextAnimationClip;
-			_animator.Play(nextAnimationClip.name);
 
-			Debug.Log("playing: " + nextAnimationClip.name);
+			_simpleAnimation.Play(nextAnimationClip.name);
+
+			//Debug.Log($"SetAnimation() name={nextAnimationClip.name}.");
 		}
 
 		public void SetCharacterColor(int index)

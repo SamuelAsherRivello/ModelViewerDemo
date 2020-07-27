@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -25,8 +24,8 @@ namespace RMC.Projects.ModelViewerDemo
          _mvdView.OnColorChange.AddListener(MVDView_OnColorChanged);
 
          SetCharacterView(0);
+         MVDView_OnAnimationChanged(0);
       }
-      
 
       //  Methods ---------------------------------------------
       private void SetCharacterView(int index)

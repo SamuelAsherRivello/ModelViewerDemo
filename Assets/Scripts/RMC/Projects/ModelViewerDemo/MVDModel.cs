@@ -10,6 +10,5 @@ namespace RMC.Projects.ModelViewerDemo
 		//  Fields ----------------------------------------------
 		[SerializeField]
 		private MVDModelData _mvdModelData = null;
-
 	}
 }

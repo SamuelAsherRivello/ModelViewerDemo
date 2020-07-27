@@ -24,7 +24,6 @@ namespace RMC.Projects.ModelViewerDemo
 		}
 
 		//  Methods ---------------------------------------------
-
 		public void SetBackgroundColor(Color color)
 		{
 			foreach (Renderer r in _renderers)
