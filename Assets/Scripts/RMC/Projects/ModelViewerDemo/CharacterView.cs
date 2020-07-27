@@ -43,7 +43,7 @@ namespace RMC.Projects.ModelViewerDemo
 			//
 			_animatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
 			_animator.runtimeAnimatorController = _animatorOverrideController;
-			SetAnimationIndex(0);
+			SetAnimation(0);
 
 		}
 
@@ -54,7 +54,7 @@ namespace RMC.Projects.ModelViewerDemo
 		}
 
 		//  Methods ---------------------------------------------
-		public void SetAnimationIndex(int index)
+		public void SetAnimation(int index)
 		{
 			AnimationClip nextAnimationClip = _animationClips[index];
 			_animatorOverrideController [nextAnimationClip.name] = nextAnimationClip;

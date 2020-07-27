@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -60,8 +61,10 @@ namespace RMC.Projects.ModelViewerDemo
 
 		}
 
-		//  Unity Methods ---------------------------------------
-		protected void Awake()
+
+
+      //  Unity Methods ---------------------------------------
+      protected void Awake()
 		{
 			Initialize();
 		}
@@ -91,6 +94,11 @@ namespace RMC.Projects.ModelViewerDemo
 		public void SetCharacterColor(int index)
 		{
 			_characterView.SetCharacterColor(index);
+		}
+
+		internal void SetCharacterAnimation(int index)
+		{
+			_characterView.SetAnimation(index);
 		}
 
 		public void SetBackgroundColor(Color color)

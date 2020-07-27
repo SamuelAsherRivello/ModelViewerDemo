@@ -40,6 +40,7 @@ namespace RMC.Projects.ModelViewerDemo
          Color color = _mvdModel.MVDModelData.BackgroundColors[index];
 
          _mvdView.SetBackgroundColor(color);
+         _mvdView.SetCharacterAnimation(index);
       }
 
       private void MVDView_OnColorChanged(int index)
