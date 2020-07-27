@@ -2,9 +2,17 @@
 
 Browse 3D Models Online
 
-## Components
+## Video
+
+[<img src="https://www.greenmangaming.com/newsroom/wp-content/uploads/2017/08/youtube-logo1.jpg" width=400px>](https://www.youtube.com/watch?v=FkmMNpVAxCY "YouTube")
+
+[YouTube Video](https://www.youtube.com/watch?v=FkmMNpVAxCY)
+
+## Overview
 
 * Faux-MVC setup. Build for future-scale to uMVC if/when needed
+* ScriptableObjects for data store
+* Standard Renderer (Not URP. Not HDRP)
 
 ## Game Engine
 
