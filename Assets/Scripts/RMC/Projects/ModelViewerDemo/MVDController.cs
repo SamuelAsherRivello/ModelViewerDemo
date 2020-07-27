@@ -54,14 +54,13 @@ namespace RMC.Projects.ModelViewerDemo
             Vector2 positionDelta = context.ReadValue<Vector2>();
 
             Vector2 positionDeltaWithSpeed = new Vector2(
-               positionDelta.normalized.x * _mvdModel.MVDModelData.RotationSpeed.x,
-               positionDelta.normalized.y * _mvdModel.MVDModelData.RotationSpeed.y);
+               positionDelta.normalized.x * _mvdModel.MVDModelData.RotationSwipeSpeed.x,
+               positionDelta.normalized.y * _mvdModel.MVDModelData.RotationSwipeSpeed.y);
 
             if (positionDelta.magnitude < 10)
             {
-               Debug.Log("OnPointerPositionChanged !" + positionDeltaWithSpeed);
-
-               _mvdView.RotateCharacterBy(new Vector3(positionDeltaWithSpeed.y, -positionDeltaWithSpeed.x, 0));
+               _mvdView.RotateCharacterBy(new Vector3(positionDeltaWithSpeed.y, -positionDeltaWithSpeed.x, 0),
+                  _mvdModel.MVDModelData.RotationDeltaSpeed);
             }
          }
       }
@@ -69,7 +68,6 @@ namespace RMC.Projects.ModelViewerDemo
       public void OnPointerPressed(CallbackContext context)
       {
          _isPressed = context.control.IsPressed();
-         Debug.Log($"OnPointerPressed() _isPressed={_isPressed}"); 
       }
    }
 }

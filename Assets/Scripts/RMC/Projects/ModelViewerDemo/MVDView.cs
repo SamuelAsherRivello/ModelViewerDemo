@@ -10,7 +10,10 @@ namespace RMC.Projects.ModelViewerDemo
 	{
 
 		//  Fields ----------------------------------------------
+		[HideInInspector]
 		public UnityEvent<int> OnAnimationChange = new UnityEvent<int>();
+
+		[HideInInspector]
 		public UnityEvent<int> OnColorChange = new UnityEvent<int>();
 
 		//  Fields ----------------------------------------------
@@ -25,19 +28,21 @@ namespace RMC.Projects.ModelViewerDemo
 
 		private CharacterView _characterView = null;
 		private List<Renderer> _backgroundRenderers = null;
+		private Vector3 _targetRotation = Vector3.zero;
+		private float _rotationDeltaSpeed = 0;
 
 		//  Initialization ---------------------------------------
-		private void Initialize ()
+		private void Initialize()
 		{
-			for (int i = 0; i <_canvasView.AnimationButtons.Count; i++)
-         {
+			for (int i = 0; i < _canvasView.AnimationButtons.Count; i++)
+			{
 				Button animationButton = _canvasView.AnimationButtons[i];
 
 				int index = i;
 				animationButton.onClick.AddListener(() =>
-				  {
-					  CanvasView_OnAnimationButtonClicked(index);
-				  });
+				{
+					CanvasView_OnAnimationButtonClicked(index);
+				});
 			}
 
 			for (int i = 0; i < _canvasView.ColorButtons.Count; i++)
@@ -55,10 +60,14 @@ namespace RMC.Projects.ModelViewerDemo
 
 		}
 
-      //  Unity Methods ---------------------------------------
-      protected void Awake()
+		//  Unity Methods ---------------------------------------
+		protected void Awake()
 		{
 			Initialize();
+		}
+
+		protected void Update()
+		{
 		}
 
 		//  Methods ---------------------------------------------
@@ -75,12 +84,13 @@ namespace RMC.Projects.ModelViewerDemo
 			_characterView.transform.Rotate(_characterView.DefaultRotation);
 			_characterView.transform.localScale = _characterView.DefaultScale;
 			_characterView.transform.position = _characterView.DefaultPosition;
+
+			_targetRotation = _characterViewParent.rotation.eulerAngles;
 		}
 
 		public void SetCharacterColor(int index)
 		{
 			_characterView.SetCharacterColor(index);
-
 		}
 
 		public void SetBackgroundColor(Color color)
@@ -88,9 +98,13 @@ namespace RMC.Projects.ModelViewerDemo
 			_backgroundView.SetBackgroundColor(color);
 		}
 
-		public void RotateCharacterBy(Vector3 rotation)
+		public void RotateCharacterBy(Vector3 rotation, float rotationDeltaSpeed)
 		{
-			_characterViewParent.Rotate(rotation, Space.World);
+			Vector3 verticalRotation = new Vector3(rotation.x, 0, 0) * rotationDeltaSpeed;
+			Vector3 horizontalRotation = new Vector3(0, rotation.y, 0) * rotationDeltaSpeed;
+
+			_characterViewParent.Rotate(verticalRotation, Space.World);
+			_characterViewParent.Rotate(horizontalRotation, Space.Self);
 		}
 
 		//  Event Handlers  --------------------------------------

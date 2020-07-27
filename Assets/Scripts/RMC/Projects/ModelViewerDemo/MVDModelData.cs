@@ -8,9 +8,10 @@ namespace RMC.Projects.ModelViewerDemo
 	{
 		//  Fields ----------------------------------------------
 		public List<CharacterView> CharacterViews { get { return _characterViews; } }
-		public Vector2 RotationSpeed { get { return _rotationSpeed; } }
-
       public List<Color> BackgroundColors { get { return _backgroundColors; } }
+
+		public Vector2 RotationSwipeSpeed { get { return _rotationSwipeSpeed; } }
+		public float RotationDeltaSpeed { get { return _rotationDeltaSpeed; } }
 
       //  Fields ----------------------------------------------
       [SerializeField]
@@ -20,7 +21,10 @@ namespace RMC.Projects.ModelViewerDemo
 		private List<Color> _backgroundColors = null;
 
 		[SerializeField]
-		private Vector2 _rotationSpeed = new Vector2(1, 1);
+		private Vector2 _rotationSwipeSpeed = new Vector2(1, 1);
+
+		[SerializeField]
+		private float _rotationDeltaSpeed = 0.01f;
 
 	}
 }
